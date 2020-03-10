@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: 移除IPv6，增加少量插件
+name: 移除IPv6，增加音乐解锁、MAC绑定、KMS及主题
 
 on:
   push:
@@ -162,13 +162,15 @@ jobs:
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
+          CONFIG_PACKAGE_luci-app-luci-app-unblockmusic
+          CONFIG_PACKAGE_luci-app-luci-app-luci-app-arpbind
           EOF
 
           # LuCI主题:
-          # cat >> .config <<EOF
-          # CONFIG_PACKAGE_luci-theme-argon=y
-          # CONFIG_PACKAGE_luci-theme-netgear=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-netgear=y
+          EOF
 
           # 常用软件包:
           cat >> .config <<EOF
